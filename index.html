@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#33200f">
 <title>Chung 腸粉</title>
+<link rel="icon" sizes="64x64" href="https://avatars.githubusercontent.com/u/312589018?s=64&amp;v=4">
+<link rel="apple-touch-icon" sizes="180x180" href="https://avatars.githubusercontent.com/u/312589018?s=180&amp;v=4">
 <style>
   :root{
     --soy:#33200f;        /* 醬油 deep soy brown */
     --soy-soft:#5c4028;
     --paper:#f7efdd;      /* 點心紙 ticket paper */
-    --paper-edge:#e9dcc2;
+    --paper-edge:#c8b38e;
     --rice:#fbf7ee;       /* 腸粉 rice white */
     --chili:#bc3f21;      /* 辣油 chop-stamp red */
-    --scallion:#77854f;   /* 蔥花 green */
+    --scallion:#5b683f;   /* 蔥花 green, deepened for small text */
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{min-height:100%}
@@ -34,9 +37,9 @@
   /* ── 點心紙 ticket ── */
   .ticket{
     width:100%;max-width:400px;
-    background:rgba(247,239,221,.24);
-    -webkit-backdrop-filter:blur(6px) saturate(1.1);
-    backdrop-filter:blur(6px) saturate(1.1);
+    background:rgba(247,239,221,.78);
+    -webkit-backdrop-filter:blur(12px) saturate(.9);
+    backdrop-filter:blur(12px) saturate(.9);
     border-radius:14px;
     padding:34px 30px 26px;
     box-shadow:0 18px 50px rgba(0,0,0,.45), 0 2px 0 var(--paper-edge) inset;
@@ -51,8 +54,8 @@
   }
   .eyebrow{
     display:flex;justify-content:space-between;align-items:center;
-    font-size:11px;letter-spacing:.22em;color:var(--soy-soft);
-    text-transform:uppercase;margin-bottom:24px;
+    font-size:12px;letter-spacing:.17em;color:var(--soy-soft);
+    text-transform:uppercase;margin-bottom:22px;
   }
   .eyebrow .no{letter-spacing:.08em}
 
@@ -91,7 +94,7 @@
   .latin{font-size:15px;letter-spacing:.3em;color:var(--soy-soft);margin-top:2px;text-transform:uppercase}
 
   .qq-note{
-    font-size:11.5px;letter-spacing:.05em;color:var(--soy-soft);
+    font-size:12.5px;line-height:1.45;letter-spacing:.035em;color:var(--soy-soft);
     margin-top:8px;
   }
 
@@ -101,9 +104,9 @@
     margin:16px 0 4px;
   }
   .langs span{
-    font-size:11px;letter-spacing:.06em;color:var(--soy-soft);
-    border:1px solid var(--paper-edge);border-radius:999px;
-    padding:3px 9px;background:rgba(255,255,255,.55);
+    font-size:12px;letter-spacing:.04em;color:var(--soy-soft);
+    border:1px solid rgba(92,64,40,.22);border-radius:999px;
+    padding:4px 10px;background:rgba(255,255,255,.68);
   }
 
   .tags{
@@ -111,16 +114,16 @@
     margin:8px 0 4px;
   }
   .tags span{
-    font-size:11px;letter-spacing:.06em;color:var(--scallion);
-    border:1px solid rgba(119,133,79,.45);border-radius:999px;
-    padding:3px 9px;background:rgba(255,255,255,.5);
+    font-size:12px;letter-spacing:.04em;color:var(--scallion);
+    border:1px solid rgba(91,104,63,.42);border-radius:999px;
+    padding:4px 10px;background:rgba(226,232,208,.76);
   }
   .rule{
-    border:none;border-top:1.5px dashed var(--paper-edge);
+    border:none;border-top:1.5px dashed rgba(92,64,40,.38);
     margin:20px 0 8px;
   }
   .rule + .menu-label{
-    font-size:11px;letter-spacing:.24em;color:var(--soy-soft);
+    font-size:12px;letter-spacing:.18em;color:var(--soy-soft);
     text-align:center;margin-bottom:10px;
   }
 
@@ -130,35 +133,45 @@
     display:flex;align-items:center;gap:12px;
     padding:12px 8px;
     color:var(--soy);text-decoration:none;
-    border-bottom:1px dashed var(--paper-edge);
-    font-size:15.5px;
+    border-bottom:1px dashed rgba(92,64,40,.28);
+    font-family:"Songti TC","Songti SC","Noto Serif TC","Noto Serif SC",Georgia,serif;
+    font-size:15.5px;font-weight:600;
     transition:background .15s ease, transform .15s ease;
     border-radius:8px;
   }
   .links li:last-child a{border-bottom:none}
-  .links .emoji{width:26px;text-align:center;font-size:18px}
+  .links .icon{
+    width:26px;height:22px;display:flex;align-items:center;justify-content:center;
+    color:var(--soy-soft);transition:color .15s ease,transform .15s ease;
+  }
+  .links .icon svg{width:18px;height:18px;display:block;fill:currentColor}
   .links .name{flex:1}
   .links .tick{
-    width:18px;height:18px;border:1.5px solid var(--soy-soft);
-    border-radius:4px;display:flex;align-items:center;justify-content:center;
-    font-size:12px;color:var(--chili);
+    width:20px;height:20px;border:1.5px solid var(--soy-soft);
+    border-radius:3px;display:flex;align-items:center;justify-content:center;
+    background:rgba(251,247,238,.42);
+    font-size:13px;color:var(--chili);opacity:.82;
+    transform:rotate(-2deg);
   }
   .links .tick::after{content:"";opacity:0;transition:opacity .15s ease}
   .links a:hover,.links a:focus-visible{
     background:rgba(188,63,33,.07);
     transform:translateX(3px);
   }
+  .links a:hover .icon,.links a:focus-visible .icon{color:var(--chili);transform:rotate(-4deg)}
+  .links a:hover .tick,
+  .links a:focus-visible .tick{opacity:1;border-color:var(--chili);background:rgba(188,63,33,.08)}
   .links a:hover .tick::after,
   .links a:focus-visible .tick::after{content:"✓";opacity:1}
   .links a:focus-visible{outline:2px solid var(--chili);outline-offset:2px}
   @media (prefers-reduced-motion: reduce){
-    .links a{transition:none}
+    .links a,.links .icon,.links .tick::after{transition:none}
   }
 
   /* ── footer + chop ── */
   footer{
     margin-top:22px;text-align:center;color:var(--soy-soft);
-    font-size:12.5px;line-height:1.9;position:relative;
+    font-size:13px;line-height:1.85;position:relative;
   }
   .chop{
     display:inline-flex;align-items:center;justify-content:center;
@@ -167,6 +180,12 @@
     color:var(--chili);font-size:17px;font-weight:700;
     transform:rotate(-6deg);letter-spacing:0;
     opacity:.85;
+  }
+  @media (max-width:360px){
+    .ticket{padding:32px 24px 24px}
+  }
+  @media (prefers-contrast: more){
+    .ticket{background:rgba(247,239,221,.94)}
   }
 </style>
 </head>
@@ -198,13 +217,14 @@
   <div class="menu-label serif">請 落 單 · ORDER BELOW</div>
 
   <ul class="links">
-    <li><a href="https://qm.qq.com/q/7wZH5GIOfS" target="_blank" rel="noopener"><span class="emoji">🐧</span><span class="name">QQ</span><span class="tick" aria-hidden="true"></span></a></li>
-    <li><a href="https://t.me/ricerollchung" target="_blank" rel="noopener"><span class="emoji">✈️</span><span class="name">Telegram</span><span class="tick" aria-hidden="true"></span></a></li>
-    <li><a href="https://t.me/addstickers/Riceroll" target="_blank" rel="noopener"><span class="emoji">🎨</span><span class="name">Telegram Stickers</span><span class="tick" aria-hidden="true"></span></a></li>
-    <li><a href="https://x.com/RRChungFun" target="_blank" rel="noopener"><span class="emoji">🐦</span><span class="name">X (Twitter)</span><span class="tick" aria-hidden="true"></span></a></li>
-    <li><a href="https://www.furtrack.com/index/character:chung" target="_blank" rel="noopener"><span class="emoji">🐾</span><span class="name">FurTrack</span><span class="tick" aria-hidden="true"></span></a></li>
-    <li><a href="https://discord.com/users/879503995180294174" target="_blank" rel="noopener"><span class="emoji">🎮</span><span class="name">Discord</span><span class="tick" aria-hidden="true"></span></a></li>
-    <li><a href="https://v.douyin.com/Vy3nUv1l_Yo/" target="_blank" rel="noopener"><span class="emoji">🎵</span><span class="name">抖音 Douyin</span><span class="tick" aria-hidden="true"></span></a></li>
+    <!-- Font Awesome Free 7.3.1 icons, Fonticons, Inc. (CC BY 4.0) -->
+    <li><a href="https://qm.qq.com/q/7wZH5GIOfS" target="_blank" rel="noopener"><span class="icon" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M434.1 420.4c-11.5 1.4-44.9-52.7-44.9-52.7 0 31.3-16.1 72.2-51 101.8 16.8 5.2 54.8 19.2 45.8 34.4-7.3 12.3-125.5 7.9-159.6 4-34.1 3.8-152.3 8.3-159.6-4-9-15.2 28.9-29.2 45.8-34.4-34.9-29.5-51.1-70.4-51.1-101.8 0 0-33.3 54.1-44.9 52.7-5.4-.6-12.4-29.6 9.3-99.7 10.3-33 22-60.5 40.1-105.8-3.1-116.9 45.2-215 160.3-215 113.7 0 163.2 96.1 160.3 215 18.1 45.2 29.9 72.9 40.1 105.8 21.8 70.1 14.7 99.1 9.3 99.7z"/></svg></span><span class="name">QQ</span><span class="tick" aria-hidden="true"></span></a></li>
+    <li><a href="https://t.me/ricerollchung" target="_blank" rel="noopener"><span class="icon" aria-hidden="true"><svg viewBox="0 0 512 512"><path d="M256 8a248 248 0 1 0 0 496 248 248 0 1 0 0-496zM371 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5c-2.2 .5-37.1 23.5-104.6 69.1-9.9 6.8-18.9 10.1-26.9 9.9-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3 .6-4.5 6.7-9 18.4-13.7 72.3-31.5 120.5-52.3 144.6-62.3 68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9 2 1.7 3.2 4.1 3.5 6.7 .5 3.2 .6 6.5 .4 9.8z"/></svg></span><span class="name">Telegram</span><span class="tick" aria-hidden="true"></span></a></li>
+    <li><a href="https://t.me/addstickers/Riceroll" target="_blank" rel="noopener"><span class="icon" aria-hidden="true"><svg viewBox="0 0 512 512"><path d="M512 256c0 .9 0 1.8 0 2.7-.4 36.5-33.6 61.3-70.1 61.3L344 320c-26.5 0-48 21.5-48 48 0 3.4 .4 6.7 1 9.9 2.1 10.2 6.5 20 10.8 29.9 6.1 13.8 12.1 27.5 12.1 42 0 31.8-21.6 60.7-53.4 62-3.5 .1-7 .2-10.6 .2-141.4 0-256-114.6-256-256S114.6 0 256 0 512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg></span><span class="name">Telegram Stickers</span><span class="tick" aria-hidden="true"></span></a></li>
+    <li><a href="https://x.com/RRChungFun" target="_blank" rel="noopener"><span class="icon" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M357.2 48L427.8 48 273.6 224.2 455 464 313 464 201.7 318.6 74.5 464 3.8 464 168.7 275.5-5.2 48 140.4 48 240.9 180.9 357.2 48zM332.4 421.8l39.1 0-252.4-333.8-42 0 255.3 333.8z"/></svg></span><span class="name">X (Twitter)</span><span class="tick" aria-hidden="true"></span></a></li>
+    <li><a href="https://www.furtrack.com/index/character:chung" target="_blank" rel="noopener"><span class="icon" aria-hidden="true"><svg viewBox="0 0 512 512"><path d="M234.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5 .3-86.2 32.6-96.8 70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3-14.3-70.1 10.2-84.1 59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5l0 1.6c0 25.8-20.9 46.7-46.7 46.7-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2-25.8 0-46.7-20.9-46.7-46.7l0-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3 29.1 51.7 10.2 84.1-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5 46.9 53.9 32.6 96.8-52.1 69.1-84.4 58.5z"/></svg></span><span class="name">FurTrack</span><span class="tick" aria-hidden="true"></span></a></li>
+    <li><a href="https://discord.com/users/879503995180294174" target="_blank" rel="noopener"><span class="icon" aria-hidden="true"><svg viewBox="0 0 576 512"><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1 .1s-.6 .4-.8 .8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2c-41.3 7.1-81.6 19.6-119.7 37.1-.3 .1-.6 .4-.8 .7-76.2 113.8-97.1 224.9-86.9 334.5 0 .3 .1 .5 .2 .8s.3 .4 .5 .6c44.4 32.9 94 58 146.8 74.2 .4 .1 .8 .1 1.1 0s.7-.4 .9-.7c11.3-15.4 21.4-31.8 30-48.8 .1-.2 .2-.5 .2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6 .2-.9 .3-.5 .6-.7c3.1-2.3 6.2-4.7 9.1-7.1 .3-.2 .6-.4 .9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1 .7-.2 1-.2s.7 .2 .9 .4c2.9 2.4 6 4.9 9.1 7.2 .2 .2 .4 .4 .6 .7s.2 .6 .2 .9-.1 .6-.3 .9-.4 .5-.6 .6c-14.7 8.6-30 15.9-45.9 21.8-.2 .1-.5 .2-.7 .4s-.3 .4-.4 .7-.1 .5-.1 .8 .1 .5 .2 .8c8.8 17 18.8 33.3 30 48.8 .2 .3 .6 .6 .9 .7s.8 .1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2 .2-.2 .4-.4 .5-.6s.2-.5 .2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2zm195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2z"/></svg></span><span class="name">Discord</span><span class="tick" aria-hidden="true"></span></a></li>
+    <li><a href="https://v.douyin.com/Vy3nUv1l_Yo/" target="_blank" rel="noopener"><span class="icon" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M448.5 209.9c-44 .1-87-13.6-122.8-39.2l0 178.7c0 33.1-10.1 65.4-29 92.6s-45.6 48-76.6 59.6-64.8 13.5-96.9 5.3-60.9-25.9-82.7-50.8-35.3-56-39-88.9 2.9-66.1 18.6-95.2 40-52.7 69.6-67.7 62.9-20.5 95.7-16l0 89.9c-15-4.7-31.1-4.6-46 .4s-27.9 14.6-37 27.3-14 28.1-13.9 43.9 5.2 31 14.5 43.7 22.4 22.1 37.4 26.9 31.1 4.8 46-.1 28-14.4 37.2-27.1 14.2-28.1 14.2-43.8l0-349.4 88 0c-.1 7.4 .6 14.9 1.9 22.2 3.1 16.3 9.4 31.9 18.7 45.7s21.3 25.6 35.2 34.6c19.9 13.1 43.2 20.1 67 20.1l0 87.4z"/></svg></span><span class="name">抖音 Douyin</span><span class="tick" aria-hidden="true"></span></a></li>
   </ul>
 
   <footer>
